@@ -1,0 +1,10 @@
+h1 {
+    color: green; 
+/*Färg för texten i h1*/
+
+}
+
+.completed {
+    text-decoration: line-through;
+    color:cyan
+}
