@@ -1,3 +1,9 @@
+body {
+    max-width: 500px;
+    margin: 0 auto;
+    
+}
+
 h1 {
     color: green; 
 /*Färg för texten i h1*/
