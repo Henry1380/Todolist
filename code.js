@@ -6,13 +6,13 @@ const counter = document.querySelector('#counter');
 let tasks = [];
 
 function addTask(text) {
-    // Skapa ett objekt och spara det i arrayen
     const task = {
         text: text,
         completed: false
     };
     tasks.push(task);
 
+    
     // Skapa <li> med checkbox, text och papperskorg
     const listItem = document.createElement('li');
     listItem.innerHTML = `<input type="checkbox" /> <span>${text}</span> <button title="Delete">🗑️</button>`;
@@ -21,7 +21,7 @@ function addTask(text) {
     const checkbox = listItem.querySelector('input');
     const deleteButton = listItem.querySelector('button');
 
-    // Klick på <li>: klar -> inte klar, inte klar -> klar
+   
     listItem.addEventListener('click', () => {
         if (task.completed === false) {
             task.completed = true;
@@ -35,9 +35,9 @@ function addTask(text) {
         updateCounter();
     });
 
-    // Klick på papperskorgen tar bort uppgiften från sidan OCH från arrayen
+    // En papperskorg som tar bort uppgiften från sidan OCH från arrayen
     deleteButton.addEventListener('click', (event) => {
-        event.stopPropagation(); // så att klicket inte också räknas som klick på <li>
+        event.stopPropagation(); 
         const index = tasks.indexOf(task);
         tasks.splice(index, 1);
         listItem.remove();
@@ -59,9 +59,9 @@ function updateCounter() {
 }
 
 form.addEventListener('submit', (event) => {
-    event.preventDefault();
+    event.preventDefault(); // hindrar sidan från att laddas om
     const input = document.querySelector('#task-input');
-    const text = input.value.trim();
+    const text = input.value.trim(); // tar bort extra mellanslag
 
     // Om fältet är tomt visas ett meddelande
     if (text === '') {
