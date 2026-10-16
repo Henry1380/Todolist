@@ -14,3 +14,7 @@ h1 {
     text-decoration: line-through;
     color:cyan
 }
+
+#message {
+    color: red;
+}

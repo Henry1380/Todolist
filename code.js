@@ -1,6 +1,7 @@
 const form = document.querySelector('form');
 const taskList = document.querySelector('#task-list');
 const counter = document.querySelector('#counter');
+const message = document.querySelector('#message');
 
 // Array med objekt där alla uppgifter sparas
 let tasks = [];
@@ -60,14 +61,18 @@ function updateCounter() {
 
 form.addEventListener('submit', (event) => {
     event.preventDefault(); // hindrar sidan från att laddas om
+    
     const input = document.querySelector('#task-input');
     const text = input.value.trim(); // tar bort extra mellanslag
 
     // Om fältet är tomt visas ett meddelande
     if (text === '') {
-        alert('You have to write something!');
+        message.textContent = 'You have to write something!';
         return;
     }
+    
+    // Tar bort meddelandet när användaren har skrivit något
+    message.textContent = '';
 
     addTask(text);
     input.value = '';
